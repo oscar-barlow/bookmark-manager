@@ -4,6 +4,8 @@ ruby "2.3.3"
 gem "datamapper"
 gem "dm-postgres-adapter"
 gem "pry"
+gem "rake"
+gem "sinatra"
 
 group :test do
   gem 'rspec'
