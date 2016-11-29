@@ -152,7 +152,6 @@ DEPENDENCIES
   capybara
   datamapper
   dm-postgres-adapter
-  json (~> 1.6)
   pry
   rack
   rack-protection

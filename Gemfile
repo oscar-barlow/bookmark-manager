@@ -9,7 +9,7 @@ gem 'sinatra', '2.0.0beta2'
 gem 'rack'
 gem 'rack-protection'
 gem 'tilt'
-gem 'json', '2.0.2'
+# gem 'json', '2.0.2'
 
 group :test do
   gem 'rspec'
