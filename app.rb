@@ -18,7 +18,7 @@ class BookmarkManager < Sinatra::Base
     erb :add_link
   end
 
-  post '/links/submit' do
+  post '/links' do
     @title = params[:Title]
     @url = params[:URL]
     Link.create(url: @url, title: @title)
