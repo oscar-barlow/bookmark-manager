@@ -5,7 +5,10 @@ gem "datamapper"
 gem "dm-postgres-adapter"
 gem "pry"
 gem "rake"
-gem "sinatra"
+gem 'sinatra', '2.0.0beta2'
+gem 'rack'
+gem 'rack-protection'
+gem 'tilt'
 
 group :test do
   gem 'rspec'
