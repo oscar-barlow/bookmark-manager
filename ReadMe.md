@@ -2,9 +2,15 @@
 
 ## User Stories
 
+### DONE
+
+### DOING
+
 As a user,
 So that I can see links I have saved,
 I want to see a list of saved links.
+
+### TODO
 
 As a user,
 So that I can keep track of an interesting site,
