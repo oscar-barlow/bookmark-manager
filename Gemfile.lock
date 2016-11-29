@@ -20,6 +20,7 @@ GEM
     coderay (1.1.1)
     data_objects (0.10.17)
       addressable (~> 2.1)
+    database_cleaner (1.5.3)
     datamapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -150,6 +151,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
+  database_cleaner
   datamapper
   dm-postgres-adapter
   pry
