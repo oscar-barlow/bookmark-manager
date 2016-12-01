@@ -22,6 +22,10 @@ class BookmarksManager < Sinatra::Base
     link.save
     redirect '/links'
   end
+
+  get '/tags/bubbles' do
+    "Bubbles"
+  end
   #
   # # start the server if ruby file executed directly
   run! if app_file == $0
