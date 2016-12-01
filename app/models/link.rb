@@ -1,7 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require_relative './modules'
-require_relative './tag'
 
 class Link
   include DataMapper::Resource
@@ -12,10 +11,3 @@ class Link
   property :url, String
 
 end
-
-
-
-include DatamapperSetup
-
-
-dm_setup

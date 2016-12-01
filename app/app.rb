@@ -4,6 +4,9 @@ require_relative './models/link.rb'
 require_relative './models/tag.rb'
 require_relative './models/modules.rb'
 require 'pry'
+include DatamapperSetup
+dm_setup
+
 
 class BookmarksManager < Sinatra::Base
   get '/links' do

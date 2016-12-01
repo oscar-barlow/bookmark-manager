@@ -12,10 +12,10 @@ feature 'filtering tags' do
     click_button 'Create new link'
     fill_in 'title', with: 'This is Bubbles'
     fill_in 'url', with: 'www.bubbles.com'
-    fill_in 'name', with: 'Bubbles'
+    fill_in 'name', with: 'bubbles'
     click_button 'Create new link'
     visit '/tags/bubbles'
-    expect(page).to have_content('Bubbles')
+    expect(page).to have_content('bubbles')
     expect(page).to_not have_content('Bing')
   end
 
