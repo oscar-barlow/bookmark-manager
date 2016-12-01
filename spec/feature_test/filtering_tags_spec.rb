@@ -3,7 +3,8 @@ require 'spec_helper'
 feature 'filtering tags' do
 
   scenario 'only links tagged with bubbles are present' do
-    visit '/links/new'
+    visit '/links'
+    click_button 'Create new link'
     fill_in 'title', with: 'This is Bing'
     fill_in 'url', with: 'https://www.bing.com'
     fill_in 'name', with: 'Bing'
