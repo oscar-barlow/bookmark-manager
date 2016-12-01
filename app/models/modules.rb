@@ -2,6 +2,7 @@ require_relative 'link.rb'
 require_relative 'tag.rb'
 
 
+
 module DatamapperSetup
 
   def dm_setup
