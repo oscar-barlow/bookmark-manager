@@ -32,4 +32,8 @@ feature 'sign up form' do
     print User.count
   end
 
+  scenario 'user cannot sign up if email has an invalid format' do
+    expect{sign_up('bryony.com', 'Bryony', 'Bryony')}.not_to change(User, :count)
+  end
+
 end

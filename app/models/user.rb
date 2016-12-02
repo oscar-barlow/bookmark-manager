@@ -8,7 +8,7 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String
+  property :username, String, required: true
   property :password_digest, Text
 
   def password=(password)
@@ -17,6 +17,6 @@ class User
   end
 
 validates_confirmation_of :password
-validates_presence_of :username
+validates_format_of :username, :as => :email_address
 
 end
