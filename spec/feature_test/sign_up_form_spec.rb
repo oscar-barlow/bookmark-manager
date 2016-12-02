@@ -28,7 +28,8 @@ feature 'sign up form' do
   end
 
   scenario 'user is not created if user does not enter an email address' do
-    sign_up('', 'Bryony', 'Oscar')
+    expect{sign_up('', 'Bryony', 'Bryony')}.not_to change(User, :count)
+    print User.count
   end
 
 end
