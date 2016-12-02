@@ -22,12 +22,19 @@ class BookmarksManager < Sinatra::Base
   set :session_secret, 'super secret'
 
   post '/users' do
-    user = User.create(username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
-    session[:user_id] = user.id
-    redirect to('/links')
+    user = User.new(username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
+    session[:user_invalid?] = !user.valid?
+    if user.valid?
+      user.save
+      session[:user_id] = user.id
+      redirect to('/links')
+    else
+      redirect to('/users/new')
+    end
   end
 
   get '/users/new' do
+    @user_invalid = session[:user_invalid?]
     erb :'users/new'
   end
 

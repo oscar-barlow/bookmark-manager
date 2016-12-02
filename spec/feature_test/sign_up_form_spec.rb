@@ -13,14 +13,19 @@ feature 'sign up form' do
     expect(User.first.username).to eq('bryony@bryony.com')
   end
 
-  scenario 'confirmation fails if user enters mismatching password' do
-    visit '/users/new'
-    expect(page.status_code).to eq(200)
-    fill_in :username, with: 'bryony@bryony.com'
-    fill_in :password, with: 'Bryony'
-    fill_in :password_confirmation, with: 'Oscar'
-    click_button('Submit')
-    expect(User.count).to eq 0
+  scenario 'user is not created if user enters mismatching password' do
+    sign_up_with_mismatched_confirmation
+    expect{sign_up_with_mismatched_confirmation}.not_to change(User, :count)
+  end
+
+  scenario 'stay on same page when user enters mismatching password' do
+    sign_up_with_mismatched_confirmation
+    expect(page).to have_current_path('/users/new')
+  end
+
+  scenario 'page shows error message if mismatched password entered' do
+    sign_up_with_mismatched_confirmation
+    expect(page).to have_content("Password and confirmation password do not match")
   end
 
 end
