@@ -29,11 +29,21 @@ feature 'sign up form' do
 
   scenario 'user is not created if user does not enter an email address' do
     expect{sign_up('', 'Bryony', 'Bryony')}.not_to change(User, :count)
-    print User.count
   end
 
   scenario 'user cannot sign up if email has an invalid format' do
     expect{sign_up('bryony.com', 'Bryony', 'Bryony')}.not_to change(User, :count)
+  end
+
+  scenario 'user cannot sign up if already signed up' do
+    sign_up('bryony@bryony.com', 'Bryony', 'Bryony')
+    expect{sign_up('bryony@bryony.com', 'Bryony', 'Bryony')}.not_to change(User, :count)
+  end
+
+  scenario 'user sees error message saying they cannot sign up if already signed up' do
+    sign_up('bryony@bryony.com', 'Bryony', 'Bryony')
+    sign_up('bryony@bryony.com', 'Bryony', 'Bryony')
+    expect(page).to have_content("User already signed up. Please login.")
   end
 
 end

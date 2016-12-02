@@ -16,7 +16,12 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
-validates_confirmation_of :password
-validates_format_of :username, :as => :email_address
+  validates_confirmation_of :password,
+    :message => "Password and confirmation password do not match."
+
+  validates_format_of :username, :as => :email_address
+  
+  validates_uniqueness_of :username,
+    :message => "User already signed up. Please login."
 
 end
