@@ -20,7 +20,7 @@ feature 'sign up form' do
 
   scenario 'stay on same page when user enters mismatching password' do
     sign_up_with_mismatched_confirmation
-    expect(page).to have_current_path('/users/new')
+    expect(page).to have_current_path('/users')
   end
 
   scenario 'page shows error message if mismatched password entered' do
