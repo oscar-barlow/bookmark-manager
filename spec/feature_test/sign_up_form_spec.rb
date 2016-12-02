@@ -13,4 +13,14 @@ feature 'sign up form' do
     expect(User.first.username).to eq('bryony@bryony.com')
   end
 
+  scenario 'confirmation fails if user enters mismatching password' do
+    visit '/users/new'
+    expect(page.status_code).to eq(200)
+    fill_in :username, with: 'bryony@bryony.com'
+    fill_in :password, with: 'Bryony'
+    fill_in :password_confirmation, with: 'Oscar'
+    click_button('Submit')
+    expect(User.count).to eq 0
+  end
+
 end
